@@ -150,7 +150,7 @@ You need to set up two permissions for the Key Vault:
 3. In the **Role** dropdown, select **Key Vault Secrets Officer**.  
    ![role-assignment](assets/key-vault-role.png)
 4. Under **Assign access to**, select **User, group, or service principal**.  
-5. Add the desired user or group as a member with **read and write access** to the secrets.  
+5. Add the desired user or group as a member.  
 6. Click **Next** and complete the role assignment.
 
 
@@ -183,6 +183,4 @@ This allows your application to securely access secrets stored in Azure Key Vaul
 
 ### Warning Note
 
-Do not setup web app environment variables in the pipeline, only in the web app portal page. This practice is unsecure as it gets copied to the configuration page of the web app configuration page on Azure portal, even variables declared as secret will appear as text. 
-
-Those environment variables should be set on web app side.
+Do not set up app environment variables in the pipeline. Instead, configure them directly in the web app portal on Azure. Setting variables in the pipeline is insecure, as they are copied to the Azure portal's web app configuration page and appear in plain text, even if marked as secrets in the pipeline.
